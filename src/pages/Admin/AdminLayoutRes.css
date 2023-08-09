@@ -1,0 +1,20 @@
+@media(max-width:480px){
+    .admin-nav{
+        display: flex;
+        justify-content: center;
+        gap: 2em;
+        color: black;
+        padding: 1em;
+    }
+    .admin-linkitem{
+        text-decoration: none;
+        color: black;
+        font-weight: bold;
+        border: 1px solid black;
+        padding: 0 1em 0 1em;
+        border-radius: 1em;
+    }
+    .admin-linkitem:hover{
+        color: darkblue;
+    }
+}

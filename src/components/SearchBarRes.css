@@ -1,0 +1,6 @@
+@media(max-width:480px){
+    .search-container{
+        display: flex;
+        max-width: 360px;
+    }
+}

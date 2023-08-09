@@ -1,0 +1,32 @@
+.cart-dropdown-fade-in {
+
+    animation: cart-fade-in 0.2s normal forwards;
+    
+}
+
+.cart-dropdown-fade-out {
+
+    animation: cart-fade-out 0.2s normal forwards;
+    
+}
+
+@keyframes cart-fade-in {
+    0% {
+        opacity: 0%;
+    }
+
+    100% {
+        opacity: 100%
+    }
+}
+
+
+@keyframes cart-fade-out {
+    100% {
+        opacity: 0%;
+    }
+
+    0% {
+        opacity: 100%
+    }
+}

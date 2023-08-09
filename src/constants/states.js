@@ -1,0 +1,22 @@
+export const states = [
+    undefined,
+    "Pest megye",
+    "Fejér megye",
+    "Komárom-Esztergom megye",
+    "Nógrád megye",
+    "Heves megye",
+    "Borsod-Abaúj-Zemplén megye",
+    "Hajdú-Bihar megye",
+    "Szabolcs-Szatmár-Bereg megye",
+    "Jász-Nagykun-Szolnok megye",
+    "Békés megye",
+    "Bács-Kiskun megye",
+    "Csongrád vármegye",
+    "Tolna megye",
+    "Baranya megye",
+    "Somogy vármegye",
+    "Veszprém megye",
+    "Zala megye",
+    "Győr-Moson-Sopron megye",
+    "Vas megye"
+]

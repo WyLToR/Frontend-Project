@@ -1,0 +1,24 @@
+@media(max-width: 480px) {
+    .login-panel {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .login-form {
+        border: none;
+        padding: 1em;
+        min-width:10em;
+        display: flex;
+        flex-flow: column;
+    }
+    .option-form button{
+        border-radius: 0.5em;
+        font-size: 1em;
+        width: 20em;
+    }
+
+    .input-form input {   
+        max-width: 15em;
+    }
+}

@@ -1,0 +1,13 @@
+.usersettings-page {
+    display: flex;
+}
+
+.userprofile-options {
+    width: 150px;
+    height: 100vh;
+    border-right: 2px solid black;
+}
+
+.userprofile-options ul {
+    list-style: none;
+}

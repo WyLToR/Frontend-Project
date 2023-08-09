@@ -1,0 +1,43 @@
+.delete-product {
+    display: grid;
+    place-items: center;
+    max-width: fit-content;
+    margin: 2rem auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+.delete-product i {
+    color: crimson;
+}
+
+.delete-product .delete-btn,
+.delete-product .cancel-btn {
+    width: 300px;
+    margin: 0.5em 0;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.delete-product .delete-btn {
+    background-color: crimson;
+}
+
+.delete-product .delete-btn:hover {
+    background-color: rgb(163, 16, 45);
+}
+
+.delete-product .cancel-btn {
+    background-color: darkgray;
+}
+
+.delete-product .cancel-btn:hover {
+    background-color: gray;
+}

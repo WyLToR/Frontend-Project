@@ -1,0 +1,8 @@
+.price-filter-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+.price-filter-input input {
+    width: 10rem;
+}

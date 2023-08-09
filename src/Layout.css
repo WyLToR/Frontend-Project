@@ -1,0 +1,92 @@
+/* --------- HEADER ---------- */
+.header-nav {
+    display: flex; 
+    justify-content: space-around;
+    border-bottom: 1px solid black;
+}
+.main-nav-links > ul {
+    list-style: none;
+    display: flex;
+    gap: 1em;
+}
+
+/* ---------- FOOTER ----------- */
+footer {
+    display: flex;
+    flex-direction: column;
+    margin-top: 5px;
+}
+.footer-elements {
+    display: grid;
+    grid-template-columns: 400px 5px 200px;
+    grid-template-rows: 50px 50px 50px 50px 50px 50px 50px;
+    margin-top: 7rem;
+    margin-bottom: 5rem;
+    background-color: rgb(179, 177, 177);
+    gap: 0px 145px;
+    box-shadow: 0px 0px 2px 2px rgba(80, 80, 80, 0.75);
+}
+.footerlinks {
+    padding: 15px;
+    margin-left: 10%;
+}
+.customer-service, .footer-phone-number, .footer-email {
+    grid-column-start: 3;
+    place-self: center;
+}
+.payment-information, .aszf, .data-handling, .data-transfer, .career, .cookie-notice, .waste-management {
+    grid-column-start: 1;
+}
+.customer-service {
+    grid-row-start: 1;
+}
+.footer-phone-number {
+    grid-row-start: 2;
+}
+.footer-email {
+    grid-row-start: 3;
+}
+.footer-elements a {
+    text-decoration: none;
+    color: rgb(22, 39, 58);
+}
+.footer-elements span {
+   color: rgb(22, 39, 58)
+}
+.footer-elements span {
+    font-weight: bold;
+}
+.footer-seprator-1 {
+    grid-column-start: 2;
+    grid-row-start: 2;
+    background-color: red;
+}
+.footer-seprator-2 {
+    grid-column-start: 2;
+    grid-row-start: 3;
+    background-color: red;
+}
+.footer-seprator-3 {
+    grid-column-start: 2;
+    grid-row-start: 4;
+    background-color: red;
+}
+.footer-seprator-4 {
+    grid-column-start: 2;
+    grid-row-start: 5;
+    background-color: red;
+}
+.footer-seprator-5 {
+    grid-column-start: 3;
+    grid-row-start: 8;
+    background-color: red;
+    height: 5px;
+}
+.footer-seprator-6 {
+    grid-column-start: 1;
+    grid-row-start: 8;
+    background-color: red;
+    height: 5px;
+    width: 50%;
+    justify-self: end;
+}

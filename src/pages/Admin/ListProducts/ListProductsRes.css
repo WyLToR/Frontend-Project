@@ -1,0 +1,22 @@
+@media(max-width:480px) {
+    .sort-container{
+        display: flex;
+        flex-direction: column;
+    }
+    .admin-filter{
+        display: flex;
+        flex-direction: column;
+    }
+    .admin-filter span{
+        display: none;
+    }
+    .table-product-name{
+        width: 10em;
+    }
+    .table-product-price{
+        width: 3.5em;
+    }
+    .table-product-settings{
+        min-width: 3.0em;
+    }
+}

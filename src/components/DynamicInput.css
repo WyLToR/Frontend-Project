@@ -1,0 +1,93 @@
+.dynamic-input-container {
+    display: flex;
+    flex-direction: column;
+    font-family: sans-serif;
+}
+
+.dynamic-input-value-container {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    padding: 10px 5px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    color: #333;
+    border: none;
+    border-bottom: 2px solid #ccc;
+    background-color: transparent;
+    cursor: text;
+}
+
+.dynamic-input-value {
+    background-color: #eee;
+    border-radius: 0.5em;
+    padding: 0.5em;
+    margin: 3px 3px 0 3px;
+    display: inline-flex;
+    font-size: 14px;
+}
+
+.dynamic-input-delete {
+    margin-left: 4px;
+    font-size: 12px;
+    background: transparent;
+    border: none;
+    color: #aaa;
+    cursor: pointer;
+}
+
+.dynamic-input-delete:hover {
+    color: crimson;
+}
+
+.dynamic-input-form {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.product-form .dynamic-input-input {
+    border-top-left-radius: 0.5em;
+    border-bottom-left-radius: 0.5em;
+    width: 100%;
+    margin-bottom: 0px;
+    border: 2px solid #ccc;
+    border-right: none;
+    padding: 10px;
+    font-size: 14px;
+    outline: none;
+}
+
+.dynamic-input-cancel,
+.dynamic-input-add {
+    background-color: rgb(37, 164, 37);
+    color: #fff;
+    border: none;
+    padding: 12px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-out;
+}
+
+.dynamic-input-cancel {
+    border-top-right-radius: 0.5em;
+    border-bottom-right-radius: 0.5em;
+    background-color: crimson;
+}
+
+.dynamic-input-add:hover {
+    background-color: green;
+}
+
+.dynamic-input-toggle {
+    position: absolute;
+    right: 0.5rem;
+    background-color: rgb(37, 164, 37);
+    border: none;
+    border-radius: 4px;
+    padding: 4px 8px;
+    font-size: 16px;
+    color: white;
+    cursor: pointer;
+}

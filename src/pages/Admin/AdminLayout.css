@@ -1,0 +1,11 @@
+.navbar {
+    max-width: 50rem;
+}
+.navbar-nav > a > a{
+    text-decoration: none;
+    color: white;
+    cursor: pointer;
+}
+.navbar-nav > a > a:hover {
+    text-decoration: underline;
+}

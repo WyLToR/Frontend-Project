@@ -1,0 +1,42 @@
+body {
+    --history-table-bg-color:rgb(217, 217, 236);
+
+}
+
+#history-table {
+    width: 70vw;
+    margin: auto;
+    border-radius: 15px;
+    box-shadow: 10px 10px 12px 10px rgba(0, 0, 0, 0.18);
+    overflow: hidden;
+}
+
+#history-table > * > * {
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    align-items: center;
+    justify-items: center;
+    padding: 0.5em
+}
+
+#history-table ul {
+    list-style: none;
+}
+
+#history-table thead {
+    background-color: var(--history-table-bg-color);
+    
+}
+
+#history-table thead tr {
+    padding: 1em;
+    border-bottom: 1px solid grey;
+}
+
+#history-table tbody > :nth-child(even) {
+    background-color: var(--history-table-bg-color);
+}
+
+.history-table-product {
+    width: 25rem
+}

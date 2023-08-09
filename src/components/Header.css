@@ -1,0 +1,15 @@
+.user-profile {
+    position: absolute;
+    background-color: rgb(157, 157, 165);
+    top: 2em;
+    right: 3em;
+    margin-top: 0.2em
+}
+
+.logo {
+    width: 10rem;
+}
+
+.user-profile ul {
+    list-style: none;
+}

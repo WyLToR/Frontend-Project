@@ -1,0 +1,12 @@
+.carousel-container {
+    width: 100%;
+    height: fit-content;
+    margin: auto;
+    margin-top: 5rem;
+    text-align: center;
+}
+.carousel-img {
+    width: 100%;
+    height: auto;
+    max-height: 80vh;
+}

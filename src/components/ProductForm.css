@@ -1,0 +1,72 @@
+.product-form {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+.img-upload-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #ccc;
+}
+
+.img-prev-container {
+    display: flex;
+    justify-content: center;
+}
+
+.img-prev-container > img {
+    width: auto;
+    height: 100%;
+    max-height: 20vh;
+}
+
+.product-form label {
+    margin-bottom: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+}
+
+.product-form > input {
+    padding: 10px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    color: #333;
+    border: none;
+    border-bottom: 2px solid #ccc;
+    background-color: transparent;
+    transition: border-bottom-color 0.2s ease;
+}
+.product-form .cancel,
+.product-form .submit {
+    margin: 0.5em 0;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    background-color: rgb(37, 164, 37);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.product-form .cancel {
+    background-color: crimson;
+}
+
+.product-form .cancel:hover {
+    background-color: rgb(145, 7, 34);
+}
+
+.product-form .submit:hover {
+    background-color: green;
+}

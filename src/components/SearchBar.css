@@ -1,0 +1,21 @@
+.search-container {
+    display: flex;
+    width: 40rem;
+}
+.search-container > input {
+    align-self: center;
+    height: 1rem;
+    width: 100%;
+    padding: 1rem;
+}
+.search-container > a {
+    align-self: center;
+    border: none;
+    cursor: pointer;
+}
+.search-container > a > svg {
+    margin-top: 12%;    
+}
+.search-container > a:hover {
+    background-color: lightsteelblue;
+}

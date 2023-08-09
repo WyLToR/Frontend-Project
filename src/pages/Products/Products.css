@@ -1,0 +1,48 @@
+h1 {
+    text-align: center;
+}
+
+/* ------------------ PRODUCTS -------------------- */
+
+.products-main-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    max-width: 1280px;
+    margin: 0 auto;
+}
+.product-btn-input-cont {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 0;
+}
+.product {
+    width: 20rem;
+    height: 38rem;
+}
+.product-details-cont {
+    height: 8rem;
+}
+.product > img {
+    width: 100%;
+    height: 17rem;
+}
+.product-input {
+    width: 20%;
+    height: 100%;
+}
+.price {
+    font-weight: bold;
+}
+
+/* ------------------ FILTERS -------------------- */
+
+.filter-container {
+    display: flex;
+    justify-content: space-evenly;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    max-width: 1280px;
+    margin: 0 auto;
+}

@@ -1,0 +1,1 @@
+export const ZIPAPI = "https://hur.webmania.cc/zips/"
