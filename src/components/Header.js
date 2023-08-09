@@ -1,67 +1,77 @@
 import { Link, useNavigate } from "react-router-dom";
-import SearchBar from "./SearchBar"
-import CartIcon from "./Cart/cartIcon"
+import { Navbar, Nav, NavDropdown } from "react-bootstrap";
+import SearchBar from "./SearchBar";
+import CartIcon from "./Cart/cartIcon";
 import { useContext, useState } from "react";
 import { AuthContext } from "../contexts/AuthContext";
 import { saveToLocalStorage } from "../services/localStorageHandler";
-import "./Header.css"
+import "./Header.css";
 import { cartContext } from "../contexts/CartContext";
-import logo from "../assets/images/logo.png"
+import logo from "../assets/images/logo.png";
 
 export default function Header() {
+  const { auth, setAuth } = useContext(AuthContext);
+  const { setCart } = useContext(cartContext);
+  const [toggled, setToggled] = useState(false);
+  const navigate = useNavigate();
 
-    const { auth, setAuth } = useContext(AuthContext);
-    const { setCart } = useContext(cartContext);
-    const [toggled, setToggled] = useState(false)
-    const navigate = useNavigate()
+  const logout = () => {
+    saveToLocalStorage(null);
+    setAuth({});
+    setCart([]);
+    navigate("/");
+  };
 
-    const logout = () => {
-        saveToLocalStorage(null);
-        setAuth({});
-        setCart([])
-        navigate("/")
-    }
-
-    return (
-        <header>
-            <nav className="header-nav">
-                <div className="header-nav-menu-option">
-                    <div>
-                        <img className="logo" src={logo} />
-                    </div>
-                </div>
-                <SearchBar />
-                <div className="main-nav-links">
-                    <ul>
-                        <li><Link to="/">Főoldal</Link></li>
-                        <li><Link to="/termekek/?page=1">Termékek</Link></li>
-                        {/* <li><Link to="/kosar">Kosaram</Link></li> */}
-                        {/* <li><Link to="/admin">Admin</Link></li> */}
-                        {auth.firstName ?
-                            <>
-                                <button onClick={() => setToggled(!toggled)}>Felhasználó</button>
-                                {toggled ?
-                                    <div className="user-profile">
-                                        <ul>
-                                            <li>Üdv {auth.firstName}!</li>
-                                            <li><Link to={`/felhasznalo/${auth.id}`}>Beállítások</Link></li>
-                                            <li><button className="logout" onClick={logout}>Kijelentkezés</button></li>
-                                        </ul>
-                                    </div>
-                                    : null
-                                }
-                            </>
-                            :
-                            <>
-                                <li><Link to="/regisztracio">Regisztráció</Link></li>
-                                <li><Link to="/belepes">Bejelentkezés</Link></li>
-                            </>
-                        }
-                        <li><CartIcon /></li>
-                    </ul>
-                </div>
-            </nav>
-        </header>
-
-    )
+  return (
+    <header>
+      <Navbar expand="lg" className="header-nav d-flex justify-content-between">
+        <Navbar.Brand>
+          <img className="logo" src={logo} alt="Logo" />
+        </Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <SearchBar />
+          <Nav className="mr-auto">
+            <Nav.Link as={Link} to="/">
+              Főoldal
+            </Nav.Link>
+            <Nav.Link as={Link} to="/termekek/?page=1">
+              Termékek
+            </Nav.Link>
+            <NavDropdown title="Felhasználó" id="basic-nav-dropdown">
+              {auth.firstName ? (
+                <>
+                  <NavDropdown.Item>
+                    Üdv {auth.firstName}!
+                  </NavDropdown.Item>
+                  <NavDropdown.Item as={Link} to={`/felhasznalo/${auth.id}`}>
+                    Beállítások
+                  </NavDropdown.Item>
+                  <NavDropdown.Item>
+                    <button className="logout" onClick={logout}>
+                      Kijelentkezés
+                    </button>
+                  </NavDropdown.Item>
+                </>
+              ) : (
+                <>
+                  <NavDropdown.Item as={Link} to="/regisztracio">
+                    Regisztráció
+                  </NavDropdown.Item>
+                  <NavDropdown.Item as={Link} to="/belepes">
+                    Bejelentkezés
+                  </NavDropdown.Item>
+                </>
+              )}
+            </NavDropdown>
+          </Nav>
+          <Nav>
+            <Nav.Link>
+              <CartIcon />
+            </Nav.Link>
+          </Nav>
+        </Navbar.Collapse>
+      </Navbar>
+    </header>
+  );
 }

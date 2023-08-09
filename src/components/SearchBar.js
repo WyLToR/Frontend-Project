@@ -6,6 +6,7 @@ import { Link, useNavigate } from "react-router-dom"
 import { SearchBarContext } from "../contexts/SearchBarContext"
 import { SearchedProductsContext } from "../contexts/SearchedProductsContext"
 import { ProductsContext } from "../contexts/ProductsContext"
+import { Button, FormControl, InputGroup } from "react-bootstrap"
 function SearchBar() {
     const { products } = useContext(ProductsContext)
     const { search, setSearch } = useContext(SearchBarContext)
@@ -65,7 +66,6 @@ function SearchBar() {
             }
         </>
     )
-
 }
 
 export default SearchBar
