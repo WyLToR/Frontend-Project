@@ -7,5 +7,7 @@ export const loadFromLocalStorage = () => {
     if (Object.keys(window.localStorage).includes("authStored")) {
         let authUser = window.localStorage.getItem("authStored");
         return JSON.parse(authUser);
+    }else{
+        return null
     }
 }
