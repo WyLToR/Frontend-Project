@@ -7,44 +7,22 @@ import { cartContext } from '../../contexts/CartContext';
 
 export default function CartIcon() {
 
-    const [isToggled, setToggled] = useState(false)
-    const [animationState, setAnimationState] = useState()
     const { cart } = useContext(cartContext)
-
-
-    const toggleCart = () => {
-        if (!isToggled) {
-            setAnimationState('cart-dropdown-fade-in')
-            setToggled(!isToggled)
-        }
-        else {
-            setAnimationState('cart-dropdown-fade-out')
-            setTimeout(() => {
-
-                setToggled(!isToggled)
-            }, 180)
-        }
-    }
+    const [showCart, setShowCart] = useState(false)
 
     return (
         <>
 
-            <button id="cart-toggle-btn" onClick={toggleCart}>
+            <button id="cart-toggle-btn" onClick={() => setShowCart(true)}>
 
                 <BsCart2 />
 
-                {cart && <span id="cart-item-count">{cart.reduce((acc, curr) => acc += curr.amount, 0)}</span> }
+                {cart && <span id="cart-item-count">{cart.reduce((acc, curr) => acc += curr.amount, 0)}</span>}
             </button>
 
 
             {
-                isToggled ?
-
-                    <div id="cart-dropdown" className={animationState}>
-                        <Cart />
-                    </div>
-                    :
-                    null
+                <Cart showCart={showCart} setShowCart={setShowCart} />
             }
         </>
 
