@@ -9,6 +9,7 @@ import { useNavigate } from "react-router-dom";
 import ToastContext from "../../contexts/ToastContext";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
+import Container from 'react-bootstrap/Container'
 
 export default function CartPage() {
     const [userName, setUserName] = useState("");
@@ -48,15 +49,13 @@ export default function CartPage() {
     }
 
     return (
-        <div className="cartpage-container">
-            <h3>A kosarad tartalma: </h3>
-            <ul className="cartpage">
-                {
-                    cart ? cart.map(cartItem => <CartItem itemInfo={cartItem} />) : <p>Jelenleg üres a kosarad...</p>
-                }
-            </ul>
-            {
-                !auth.email ?
+        <>
+            {cart && cart.length > 0 ? (
+                auth && auth.email ? (
+                    <Button className="sendorder-btn" onClick={sendOrder} variant="outline-secondary">
+                        Megrendelem
+                    </Button>
+                ) : (
                     <Form onSubmit={handleSubmit}>
                         <Form.Group className="mb-3 anon-name">
                             <Form.Label>Név megadása kötelező:</Form.Label>
@@ -64,15 +63,20 @@ export default function CartPage() {
                                 placeholder="Megrendelő neve..."
                                 aria-label="Megrendelő neve"
                                 aria-describedby="basic-addon2"
+                                value={userName}
                                 onChange={(e) => setUserName(e.target.value)}
                             />
-
                         </Form.Group>
-                        <Button type="submit" variant="outline-secondary">Megrendelem</Button>
+                        <Button type="submit" variant="outline-secondary">
+                            Megrendelem
+                        </Button>
                     </Form>
-                    :
-                    <Button className="sendorder-btn" onClick={sendOrder} variant="outline-secondary">Megrendelem</Button>
-            }
-        </div>
-    )
+                )
+            ) : (
+                <Container className="text-center my-5">
+                    <h2>Jelenleg üres a kosarad...</h2>
+                </Container>
+            )}
+        </>
+    );
 }
