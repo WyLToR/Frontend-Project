@@ -3,8 +3,8 @@ import { useSearchParams } from "react-router-dom";
 import { CurrentPageContext } from "../contexts/CurrentPageContext";
 import { ProductsContext } from "../contexts/ProductsContext";
 import { searchMaxValue, searchMinValue } from "../utils/sortUtil";
+import { Form, Row, Col, Button } from 'react-bootstrap'
 import "./PriceFilter.css"
-import Button from 'react-bootstrap/Button';
 
 export default function PriceFilter({ sortState }) {
     const { currentPage } = useContext(CurrentPageContext)
@@ -21,34 +21,48 @@ export default function PriceFilter({ sortState }) {
             max: param.get('to') != null ? param.get('to') : searchMaxValue(products)
         })
     }, [products])
-    
+
     const handleFilter = () => {
         setParam(`?sort=${sortState.sort}&order=${sortState.order}&page=${currentPage}&from=${value.min}&to=${value.max}`)
     }
 
     return (
         <div className="price-filter-container">
-            <div className="price-filter-input">
-                <input type="number"
-                    max={value.max}
-                    value={value.min}
-                    onChange={(e) => {
-                        setValue({ ...value, min: Number(e.target.value) })
-                    }}
-                    step={10} />
-                <span>-TÓL</span>
-
-            </div>
-            <div className="price-filter-input">
-                <input type="number"
-                    max={value.max}
-                    value={value.max}
-                    onChange={(e) => {
-                        setValue({ ...value, max: Number(e.target.value) })
-                    }} step={10} />
-                <span>-IG</span>
-            </div>
-            <Button variant="primary" onClick={handleFilter}>Szűrés</Button>
+            <Form>
+                <Row className="align-items-center">
+                    <Col>
+                        <Form.Group controlId="minPrice">
+                            <Form.Control
+                                type="number"
+                                max={value.max}
+                                value={value.min}
+                                onChange={(e) => {
+                                    setValue({ ...value, min: Number(e.target.value) });
+                                }}
+                                step={10}
+                            />
+                            <Form.Text>-TÓL</Form.Text>
+                        </Form.Group>
+                    </Col>
+                    <Col>
+                        <Form.Group controlId="maxPrice">
+                            <Form.Control
+                                type="number"
+                                max={value.max}
+                                value={value.max}
+                                onChange={(e) => {
+                                    setValue({ ...value, max: Number(e.target.value) });
+                                }}
+                                step={10}
+                            />
+                            <Form.Text>-IG</Form.Text>
+                        </Form.Group>
+                    </Col>
+                    <Col>
+                        <Button variant="primary" onClick={handleFilter}>Szűrés</Button>
+                    </Col>
+                </Row>
+            </Form>
         </div>
     )
 }
