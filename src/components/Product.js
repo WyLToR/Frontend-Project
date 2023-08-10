@@ -4,7 +4,7 @@ import CRUD from "../services/CRUD"
 import { useContext } from "react"
 import cartFormatter from "../utils/cartFormatter"
 import { AuthContext } from "../contexts/AuthContext"
-import { Card, Button, CardImg } from 'react-bootstrap'
+import { Card, Button} from 'react-bootstrap'
 import { Link } from "react-router-dom"
 
 
@@ -26,15 +26,13 @@ function Product({ elem }) {
 
     return (
         <Card bg="secondary" text="light" className="product">
-            <CardImg variant="top" src={elem.imageUrl} />
+            <Card.Img variant="top" src={elem.imageUrl} />
             <Card.Body className="product-details-cont">
                 <Card.Title className="product-title"><Link to={`${elem.id}`}>{elem.title}</Link></Card.Title>
-                <Card.Text className="product-desc">{elem.description}</Card.Text>
+                <Card.Text className="product-desc overflow-hidden">{elem.description}</Card.Text>
             </Card.Body>
-            <Card.Body className="product-price">
-                <Card.Text className="price">Ár: {elem.price}</Card.Text>
-            </Card.Body>
-            <Card.Body className="product-btn-input-cont">
+            <Card.Body className="product-price mt-5">
+                <Card.Text className="price">Ár: {elem.price} Ft</Card.Text>
                 <Button className="product-buy-button" variant="primary" name={elem.id} onClick={addToCart}>KOSÁRBA</Button>
             </Card.Body>
         </Card>
