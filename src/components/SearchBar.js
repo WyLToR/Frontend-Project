@@ -51,8 +51,6 @@ function SearchBar() {
             navigate("/")
         }
     }
-    console.log(pageIsAdmin)
-
     return (
         <>
             {
