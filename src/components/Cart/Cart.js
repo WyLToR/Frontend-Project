@@ -1,45 +1,50 @@
-import { useContext } from "react"
-import { cartContext } from "../../contexts/CartContext"
-import CartItem from "./CartItem"
-import "./cart.css"
-import { Link } from "react-router-dom"
+import { useContext, useState } from "react";
+import { cartContext } from "../../contexts/CartContext";
+import CartItem from "./CartItem";
+import "./cart.css";
+import { Link } from "react-router-dom";
+import { Offcanvas } from "react-bootstrap";
 
-export default function Cart() {
+export default function Cart({ showCart, setShowCart }) {
+    const { cart } = useContext(cartContext);
 
-    const { cart, setCart } = useContext(cartContext)
+
+    const handleClose = () => setShowCart(false);
+    const handleShow = () => setShowCart(true);
+
+    const totalAmount = cart?.reduce((total, cartItem) => total + Number(cartItem.price), 0);
 
     return (
-        <div id="cart-item-list">
-            <ul>
-                {
-                    cart ?
-
-                        cart.map(cartItem => <CartItem itemInfo={cartItem} />)
-
-                        :
-
-                        <div id="cart-item-list-placeholder"><p>A kosarad jelengleg üres!</p></div>
-                }
-            </ul>
-            {
-                cart &&
-                <div id="cart-dropdown-summary">
-                    <div id="cart-dropdown-total">
-                        <span>Total:</span>
-                        <span id="cart-dropdown-total-numbers">{cart ? `${Math.ceil(cart.reduce((acc, curr) => acc += Number(curr.price), 0))} HUF` : "0 $"}</span>
-
-                    </div>
-                    <div id="cart-dropdown-orderpage-link">
-                        <Link to="/kosar">Tovább a megrendeléshez</Link>
-                    </div>
-
-                </div>
-
-            }
-
-        </div>
-    )
-
-
-
+        <>
+            <Offcanvas show={showCart} onHide={handleClose} placement="end">
+                <Offcanvas.Header closeButton>
+                    <Offcanvas.Title>Kosár</Offcanvas.Title>
+                </Offcanvas.Header>
+                <Offcanvas.Body>
+                    {cart && cart.length > 0 ? (
+                        <ul>
+                            {cart.map((cartItem) => (
+                                <CartItem itemInfo={cartItem} key={cartItem.id} />
+                            ))}
+                        </ul>
+                    ) : (
+                        <p>A kosarad jelenleg üres!</p>
+                    )}
+                    {cart && cart.length > 0 && (
+                        <div id="cart-dropdown-summary">
+                            <div id="cart-dropdown-total">
+                                <span>Total:</span>
+                                <span id="cart-dropdown-total-numbers">
+                                    {`${Math.ceil(totalAmount)} HUF`}
+                                </span>
+                            </div>
+                            <div id="cart-dropdown-orderpage-link">
+                                <Link to="/kosar">Tovább a megrendeléshez</Link>
+                            </div>
+                        </div>
+                    )}
+                </Offcanvas.Body>
+            </Offcanvas>
+        </>
+    );
 }
